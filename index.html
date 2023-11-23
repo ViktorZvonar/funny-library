@@ -14,8 +14,56 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.css"
     />
     <link rel="stylesheet" href="./styles/main.css" />
-    <script type="module" src="./index.js" defer></script>
+    <script type="module" src="./js/index.js" defer></script>
     <title>Library</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Virtual Library</h1>
+    </header>
+    <main>
+      <div id="library"></div>
+      <form id="book-form" class="form" onsubmit="return validateForm(event)">
+        <section class="form__container">
+          <fieldset class="form__field">
+            <label for="title" class="form__label">Title</label>
+            <input
+              class="form__input"
+              type="text"
+              id="title"
+              placeholder="Book Title"
+              required
+            />
+
+            <label for="author" class="form__label">Author</label>
+            <input
+              class="form__input"
+              type="text"
+              id="author"
+              placeholder="Author Name"
+              required
+            />
+          </fieldset>
+
+          <fieldset class="form__field">
+            <label for="pages" class="form__label">Number of Pages</label>
+            <input
+              class="form__input"
+              type="number"
+              id="pages"
+              placeholder="123"
+              required
+            />
+            <label for="read" class="form__label">Read</label>
+            <input class="form__input" type="checkbox" id="read" />
+          </fieldset>
+        </section>
+        <button type="submit" class="form__submit-button">Add Book</button>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <p class="form-login__text">This library is under legal protection.</p>
+    </footer>
+  </body>
 </html>

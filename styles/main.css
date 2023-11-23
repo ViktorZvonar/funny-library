@@ -1,2 +1,3 @@
 @import url(./reset.css);
-
+@import url(./modules/form.css);
+@import url(./modules/headerAndFooter.css);
