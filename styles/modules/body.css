@@ -55,12 +55,17 @@ body {
   border-radius: 20px;
 }
 
+.form__input:focus {
+  outline: 4px solid rgb(128, 255, 0);
+}
+
 .aside form input[type="checkbox"] {
+  height: 30px;
   margin-right: 5px;
 }
 
 .form__input--error {
-  outline: 4px solid red;
+  outline: 4px solid rgb(255, 0, 0);
 }
 
 .aside form button {

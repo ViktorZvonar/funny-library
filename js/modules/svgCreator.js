@@ -3,8 +3,10 @@ export function createReadSvg1() {
   svg.setAttribute("width", "25");
   svg.setAttribute("height", "25");
   svg.setAttribute("fill", "green");
+  svg.setAttribute("aria-labelledby", "readSvg1Title");
 
   let title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "readSvg1Title");
   title.textContent = "Check Mark";
   svg.appendChild(title);
 
@@ -23,8 +25,10 @@ export function createReadSvg2() {
   svg.setAttribute("width", "25");
   svg.setAttribute("height", "25");
   svg.setAttribute("fill", "red");
+  svg.setAttribute("aria-labelledby", "readSvg2Title");
 
   let title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "readSvg2Title");
   title.textContent = "Close Outline";
   svg.appendChild(title);
 
@@ -43,8 +47,10 @@ export function createDeleteSvg() {
   svg.setAttribute("width", "25");
   svg.setAttribute("height", "25");
   svg.setAttribute("fill", "red");
+  svg.setAttribute("aria-labelledby", "deleteSvgTitle");
 
   let title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+  title.setAttribute("id", "deleteSvgTitle");
   title.textContent = "Trash Can Outline";
   svg.appendChild(title);
 
