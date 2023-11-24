@@ -6,6 +6,6 @@ export function preventNonAlphabeticInput(event) {
 }
 
 export function validateName(name) {
-  const regex = /^(?:[A-Za-z]{2,}\s?)+$/;
+  const regex = /^[A-Z][a-z]*(?:\s[A-Z][a-z]*)*$/;
   return regex.test(name.trim());
 }
