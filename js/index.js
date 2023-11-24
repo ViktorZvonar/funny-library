@@ -6,6 +6,8 @@ import {
   displayLibrary,
 } from "./modules/libraryFunctions.js";
 
+import { validateForm } from "./modules/form-validation.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("add-book-button").addEventListener("click", addBook);
   document
@@ -17,3 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.toggleReadStatus = toggleReadStatus;
 window.deleteBook = deleteBook;
+
+window.onload = function () {
+  const form = document.getElementById("form");
+  if (form) {
+    form.onsubmit = validateForm;
+  } else {
+    console.log("Form not found.");
+  }
+};
