@@ -1,9 +1,16 @@
 import { Book } from "./book.js";
+import { validateForm } from "./form-validation.js";
 
 let myLibrary = [];
 let totalBooks = document.getElementById("total-books");
 
-export function addBook() {
+export function addBook(event) {
+  event.preventDefault();
+
+  if (!validateForm(event)) {
+    return;
+  }
+
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = document.getElementById("pages").value;
