@@ -49,49 +49,38 @@ export function displayLibrary() {
   let readCount = 0;
   let unreadCount = 0;
 
-  for (let i = 0; i < myLibrary.length; i++) {
+  myLibrary.forEach((book, i) => {
     let bookInfo = document.createElement("div");
-    totalBooks.innerHTML = `<p>Total Books ${i + 1}</p>`;
 
     let readButton = document.createElement("button");
-    readButton.textContent = myLibrary[i].read ? "X" : "Done";
-    readButton.onclick = (function (index) {
-      return function () {
-        toggleReadStatus(index);
-      };
-    })(i);
+    readButton.textContent = book.read ? "X" : "Done";
+    readButton.classList.add("toggle-read-button");
+    readButton.setAttribute("data-index", i);
+    bookInfo.appendChild(readButton);
 
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
-    deleteButton.onclick = (function () {
-      return function () {
-        deleteBook(i);
-      };
-    })(i);
+    deleteButton.classList.add("delete-button");
+    deleteButton.setAttribute("data-index", i);
+    bookInfo.appendChild(deleteButton);
 
-    bookInfo.innerHTML = `
-            <p>${myLibrary[i].title}</p>
-            <p>${myLibrary[i].author}</p>
-            <p>${myLibrary[i].pages}</p>
-            <button onclick="toggleReadStatus(${i})">${
-      myLibrary[i].read ? "Done" : "X"
-    }</button>
-            <button onclick="deleteBook(${i})">Delete</button>
-            <hr>
-        `;
+    bookInfo.innerHTML += `
+      <p>${book.title}</p>
+      <p>${book.author}</p>
+      <p>${book.pages}</p>
+      <hr>
+    `;
     libraryDisplay.appendChild(bookInfo);
 
-    if (myLibrary[i].read) {
+    if (book.read) {
       readCount++;
     } else {
       unreadCount++;
     }
+  });
 
-    document.getElementById(
-      "books-read",
-    ).innerHTML = `Read Books: ${readCount}`;
-    document.getElementById(
-      "books-unread",
-    ).innerHTML = `Unread Books: ${unreadCount}`;
-  }
+  document.getElementById("books-read").innerHTML = `Read Books: ${readCount}`;
+  document.getElementById(
+    "books-unread",
+  ).innerHTML = `Unread Books: ${unreadCount}`;
 }
