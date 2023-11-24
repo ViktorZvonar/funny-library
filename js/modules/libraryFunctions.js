@@ -44,6 +44,7 @@ export function displayLibrary() {
 
   for (let i = 0; i < myLibrary.length; i++) {
     let bookInfo = document.createElement("div");
+    bookInfo.classList.add("book-container"); 
     totalBooks.innerHTML = `<p>Total Books ${i + 1}</p>`;
 
     let readButton = document.createElement("button");
@@ -63,15 +64,15 @@ export function displayLibrary() {
     })(i);
 
     bookInfo.innerHTML = `
-            <p>${myLibrary[i].title}</p>
-            <p>${myLibrary[i].author}</p>
-            <p>${myLibrary[i].pages}</p>
-            <button onclick="toggleReadStatus(${i})">${
-      myLibrary[i].read ? "Done" : "X"
-    }</button>
-            <button onclick="deleteBook(${i})">Delete</button>
-            <hr>
-        `;
+      <p>${myLibrary[i].title}</p>
+      <p>${myLibrary[i].author}</p>
+      <p>${myLibrary[i].pages}</p>
+      <button onclick="toggleReadStatus(${i})">${
+        myLibrary[i].read ? "Done" : "X"
+      }</button>
+      <button onclick="deleteBook(${i})">Delete</button>
+      <hr>
+    `;
     libraryDisplay.appendChild(bookInfo);
 
     if (myLibrary[i].read) {

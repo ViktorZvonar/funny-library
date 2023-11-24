@@ -3,3 +3,29 @@
     grid-template-columns: auto auto auto auto auto;
     grid-gap: 20px;
 }
+
+.book-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 25% auto;
+    grid-template-rows: 300px auto;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar main";
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
