@@ -13,9 +13,7 @@ export function validateForm(event) {
 
   if (!validateName(author.value)) {
     event.preventDefault();
-    alert(
-      "Author's name must contain min 2 letters starting with CAPITAL one.",
-    );
+    swal("Author's name must contain min 2 letters starting with CAPITAL one.");
     author.classList.add("form__input--error");
     libraryDisplay.innerHTML = "";
     isValid = false;

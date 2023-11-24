@@ -1,6 +1,6 @@
 export function preventNonAlphabeticInput(event) {
   if (!event.key.match(/^[A-Za-z\s]$/)) {
-    alert("Provide only English letters and spaces");
+    swal("Provide only English letters and spaces");
     event.preventDefault();
   }
 }

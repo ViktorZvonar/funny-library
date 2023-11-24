@@ -59,21 +59,24 @@
         />
 
         <label for="read">Have you read this book?</label>
-        <input type="checkbox" id="read" />
+        <input type="checkbox" id="read" aria-label="Book status toggler" />
 
-        <button id="add-book-button">Add a new book</button>
+        <button id="add-book-button" aria-label="Add a book">
+          Add a new book
+        </button>
       </form>
     </aside>
     <main class="main">
-      <div id="books-header">
+      <section id="books-header">
         <p>Title</p>
         <p>Author</p>
         <p>Pages</p>
         <p>Status</p>
         <p>Removal</p>
-      </div>
-      <div id="libraryDisplay" class="grid-container"></div>
+      </section>
+      <section id="libraryDisplay" class="grid-container"></section>
     </main>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="module" src="./js/index.js"></script>
   </body>
 </html>
