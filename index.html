@@ -26,19 +26,37 @@
     <aside class="aside">
       <section class="logo-section">
         <picture>
-          <img src="./logo.png" alt="logo image">
+          <img src="./logo.png" alt="logo image" />
         </picture>
         <p>LIBRARY</p>
       </section>
-      <form id="form" onsubmit="return validateForm(event)">
+      <form id="form">
         <label for="title">Title:</label>
-        <input type="text" id="title" />
+        <input
+          class="form__input"
+          type="text"
+          id="title"
+          placeholder="Huckleberry Finn"
+          required
+        />
 
         <label for="author">Author:</label>
-        <input type="text" id="author" />
+        <input
+          class="form__input"
+          type="text"
+          id="author"
+          placeholder="Mark Twain"
+          required
+        />
 
         <label for="pages">Pages:</label>
-        <input type="number" id="pages" />
+        <input
+          class="form__input"
+          type="number"
+          id="pages"
+          placeholder="1234567..."
+          required
+        />
 
         <label for="read">Have you read this book?</label>
         <input type="checkbox" id="read" />

@@ -1,30 +1,47 @@
 import {
   addBook,
   deleteAllBooks,
-  toggleReadStatus,
-  deleteBook,
   displayLibrary,
+  deleteBook,
+  toggleReadStatus,
 } from "./modules/libraryFunctions.js";
 
-import { validateForm } from "./modules/form-validation.js";
-
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("add-book-button").addEventListener("click", addBook);
+  const form = document.getElementById("form");
+  if (form) {
+    form.addEventListener("submit", addBook);
+  } else {
+    console.log("Form not found.");
+  }
+
   document
     .getElementById("delete-all-books-button")
     .addEventListener("click", deleteAllBooks);
 
+  document
+    .getElementById("libraryDisplay")
+    .addEventListener("click", function (event) {
+      let target = event.target;
+
+      // Check if the target is the SVG or a child of the button
+      if (target.tagName === "svg" || target.tagName === "path") {
+        target = target.closest("button");
+      }
+
+      const indexStr = target.getAttribute("data-index");
+      if (indexStr) {
+        const index = parseInt(indexStr, 10);
+
+        if (target.classList.contains("delete-button")) {
+          deleteBook(index);
+        } else if (target.classList.contains("toggle-read-button")) {
+          toggleReadStatus(index);
+        }
+      }
+    });
+
   displayLibrary();
 });
 
-window.toggleReadStatus = toggleReadStatus;
 window.deleteBook = deleteBook;
-
-window.onload = function () {
-  const form = document.getElementById("form");
-  if (form) {
-    form.onsubmit = validateForm;
-  } else {
-    console.log("Form not found.");
-  }
-};
+window.toggleReadStatus = toggleReadStatus;
