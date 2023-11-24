@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", function (event) {
       let target = event.target;
 
-      // Check if the target is the SVG or a child of the button
       if (target.tagName === "svg" || target.tagName === "path") {
         target = target.closest("button");
       }
